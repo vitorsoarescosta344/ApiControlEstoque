@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-routes.get("/:token/produto", cors() , ProdutoController.index);
+app.get("/:token/produto", cors() , ProdutoController.index);
 
 routes.post("/:token/produto", cors(), ProdutoController.store);
 
