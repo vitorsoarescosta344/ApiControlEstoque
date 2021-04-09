@@ -15,10 +15,10 @@ app.use((req, res, next) => {
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-app.get("/:token/produto", ProdutoController.index);
+routes.get("/:token/produto", ProdutoController.index);
 
-app.post("/:token/produto", ProdutoController.store);
+routes.post("/:token/produto", ProdutoController.store);
 
-app.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
+routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
-//module.exports = app;
+module.exports = routes;
