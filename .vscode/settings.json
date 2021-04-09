@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ec66d38a-662e-41a4-995e-42ef5c51d073/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/webApiControlEstoque",
+    "appService.deploySubpath": "."
+}
