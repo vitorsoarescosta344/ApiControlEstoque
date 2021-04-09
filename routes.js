@@ -12,10 +12,10 @@ app.use((req, res, next) => {
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-routes.get("/:token/produto", cors() , ProdutoController.index);
+app.get("/:token/produto", cors() , ProdutoController.index);
 
-routes.post("/:token/produto", cors(), ProdutoController.store);
+app.post("/:token/produto", cors(), ProdutoController.store);
 
-routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
+app.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
 module.exports = routes;
