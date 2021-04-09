@@ -14,7 +14,7 @@ const ProdutoController = require("./app/controller/ProdutoController");
 
 app.get("/:token/produto", cors() , ProdutoController.index);
 
-routes.post("/:token/produto", cors(), ProdutoController.store);
+app.post("/:token/produto", cors(), ProdutoController.store);
 
 routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
