@@ -10,7 +10,7 @@ class App {
     this.middlewares();
     this.routes();
 
-    this.express.listen(3001, () =>
+    this.express.listen(5000, () =>
       console.log(`Sua API REST está funcionando na porta 3001 `)
     );
   }
