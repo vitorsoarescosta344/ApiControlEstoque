@@ -21,4 +21,4 @@ app.post("/:token/produto", ProdutoController.store);
 
 app.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
-module.exports = app;
+//module.exports = app;
