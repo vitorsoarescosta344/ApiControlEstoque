@@ -18,7 +18,7 @@ var corsOptions = {
     optionsSuccessStatus: 200
 }
 
-app.use(cors(corsOptions))
+routes.use(cors(corsOptions))
 
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
