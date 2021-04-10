@@ -13,7 +13,7 @@ const app = express()
 
 
 var corsOptions = {
-    origin: "*",
+    origins: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     optionsSuccessStatus: 200
 }
@@ -22,7 +22,10 @@ var corsOptions = {
 
 const routes = express.Router();
 
-routes.use(cors(corsOptions))
+routes.use((req, res, next) =>{
+    res.header('Access-Control-Allow-Origin', '*')
+    next()
+})
 const ProdutoController = require("./app/controller/ProdutoController");
 
 routes.get("/:token/produto", ProdutoController.index);
