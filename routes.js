@@ -18,7 +18,11 @@ var corsOptions = {
     optionsSuccessStatus: 200
 }
 
-routes.use(cors(corsOptions))
+routes.use(cors({
+    allowedOrigins: [
+        'http://localhost:3000'
+    ]
+}))
 
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
