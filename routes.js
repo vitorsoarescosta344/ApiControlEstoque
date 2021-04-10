@@ -10,7 +10,7 @@ const app = express()
     next()
 })*/
 
-//app.use(cors())
+
 
 var corsOptions = {
     "origin": "*",
@@ -18,12 +18,14 @@ var corsOptions = {
     optionsSuccessStatus: 200
 }
 
+app.use(cors(corsOptions))
+
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-routes.get("/:token/produto", cors(corsOptions), ProdutoController.index);
+app.get("/:token/produto", ProdutoController.index);
 
-routes.post("/:token/produto", cors(corsOptions), ProdutoController.store);
+app.post("/:token/produto", ProdutoController.store);
 
 routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
