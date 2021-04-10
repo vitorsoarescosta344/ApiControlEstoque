@@ -12,7 +12,7 @@ class App {
     this.routes();
 
     this.express.listen(PORT, () =>
-      console.log(`Sua API REST está funcionando na porta 3001 `)
+      console.log(`Sua API REST está funcionando na porta ${PORT} `)
     );
   }
 
