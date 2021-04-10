@@ -23,7 +23,7 @@ var corsOptions = {
 const routes = express.Router();
 
 routes.use((req, res, next) =>{
-    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
     next()
 })
 const ProdutoController = require("./app/controller/ProdutoController");
