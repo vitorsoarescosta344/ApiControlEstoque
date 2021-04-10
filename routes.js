@@ -12,12 +12,17 @@ const app = express()
 
 //app.use(cors())
 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
+
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-routes.get("/:token/produto", cors(), ProdutoController.index);
+routes.get("/:token/produto", cors(corsOptions), ProdutoController.index);
 
-routes.post("/:token/produto", cors(), ProdutoController.store);
+routes.post("/:token/produto", cors(corsOptions), ProdutoController.store);
 
 routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
