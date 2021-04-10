@@ -22,7 +22,7 @@ var corsOptions = {
 
 const routes = express.Router();
 
-routes.use(cors())
+routes.use(cors(corsOptions))
 const ProdutoController = require("./app/controller/ProdutoController");
 
 routes.get("/:token/produto", ProdutoController.index);
