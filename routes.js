@@ -23,9 +23,9 @@ app.use(cors(corsOptions))
 const routes = express.Router();
 const ProdutoController = require("./app/controller/ProdutoController");
 
-app.get("/:token/produto", ProdutoController.index);
+routes.get("/:token/produto", ProdutoController.index);
 
-app.post("/:token/produto", ProdutoController.store);
+routes.post("/:token/produto", ProdutoController.store);
 
 routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
