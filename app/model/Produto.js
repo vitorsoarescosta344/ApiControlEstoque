@@ -4,11 +4,13 @@ const ProdutoSchema = new mongoose.Schema(
     {
         codDeBarras:{
             type: Number,
-            required: true
+            required: true,
+            unique: true
         },
         nome:{
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         qty:{
             type: Number,
