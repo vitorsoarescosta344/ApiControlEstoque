@@ -3,7 +3,7 @@ const Produto = require("../model/Produto");
 class ProdutoController {
   async store(req, res) {
     if(req.params.token === '12345678'){
-        const result = Produto.findOne({codDeBarras: req.body.codDeBarras})
+        const result = Produto.findOne({codDeBarras: req.body.codDeBarras}).lean()
         if(!result){
           const data = await Produto.create(req.body);
           return res.json(data);
