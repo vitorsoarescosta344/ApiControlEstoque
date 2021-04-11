@@ -4,16 +4,17 @@ class ProdutoController {
   async store(req, res) {
     if(req.params.token === '12345678'){
 
-      let IsValid = Produto.findOne({codDeBarras: res.body.codDeBarras}, (err, res)=>{
-        if(res && res.codDeBarras === res.codDeBarras){
-          console.log({error: "Produto já existe"})
-        }
-      })
-      if(IsValid){
-        return res.status(400).json({error: "Esse produto já existe"})
+      const {codDeBarras} = req.body
+
+      const produto1 = await Produto.findOne({codDeBarras})
+
+      if (!produto1){
+        const data = await Produto.create(req.body);
+        return res.json(data);
       }
-      const data = await Produto.create(req.body);
-      return res.json(data);       
+
+      return res.status(400).json({error: "O produto já existe"})
+             
     }
 
     return res.status(500).json({ error: "falha na autenticação" })
