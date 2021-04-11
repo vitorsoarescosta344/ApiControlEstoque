@@ -6,10 +6,12 @@ class ProdutoController {
         const result = Produto.findOne({codDeBarras: req.params.codDeBarras})
         if(result === null){
           const data = await Produto.create(req.body);
+          return res.json(data);
         }
+        return res.status(400).json({error: "O produto já existe"})
 
 
-        return res.json(data);
+        
     }
 
     return res.status(500).json({ error: "falha na autenticação" })
