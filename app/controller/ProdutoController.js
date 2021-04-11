@@ -4,7 +4,7 @@ class ProdutoController {
   async store(req, res) {
     if(req.params.token === '12345678'){
         const result = Produto.findOne({codDeBarras: 456343239}).lean()
-        if(!result){
+        if(result){
           const data = await Produto.create(req.body);
           return res.json(data);
         }
