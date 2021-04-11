@@ -9,6 +9,9 @@ class ProdutoController {
           console.log({error: "Produto já existe"})
         }
       })
+      if(!IsValid){
+        return res.status(400).json({error: "Esse produto já existe"})
+      }
       const data = await Produto.create(req.body);
       return res.json(data);       
     }
