@@ -13,6 +13,10 @@ class ProdutoController {
         return res.json(data);
       }
 
+      if(req.body.codDeBarras === null){
+        return res.status(500).json({error: "requisição vazia"})
+      }
+
       return res.status(400).json({error: "O produto já existe"})
              
     }
