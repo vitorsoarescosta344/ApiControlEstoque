@@ -35,4 +35,6 @@ routes.post("/:token/produto", ProdutoController.store);
 
 routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
+routes.delete("/:token/produto/:codDeBarras", ProdutoController.deleteProd)
+
 module.exports = routes;

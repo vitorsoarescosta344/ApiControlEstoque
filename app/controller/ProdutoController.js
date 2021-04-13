@@ -13,10 +13,6 @@ class ProdutoController {
         return res.json(data);
       }
 
-      if(req.body.codDeBarras === null){
-        return res.status(500).json({error: "requisição vazia"})
-      }
-
       return res.status(400).json({error: "O produto já existe"})
              
     }
@@ -39,6 +35,15 @@ class ProdutoController {
         return res.json(data);
     }
     return res.status(500).json({ error: "falha na autenticação" })
+  }
+
+  async deleteProd(req, res){
+    if(req.params.token === '12345678'){
+      const data = await Produto.deleteOne({codDeBarras: req.params.codDeBarras})
+
+      return res.json({success: "Produto deletado com sucesso"})
+    }
+    return res.status(500).json({error: "falha na autenticação"})
   }
 }
 
