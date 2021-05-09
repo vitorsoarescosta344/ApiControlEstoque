@@ -38,6 +38,6 @@ routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 
 routes.delete("/:token/produto/:codDeBarras", ProdutoController.deleteProd)
 
-routes.put("/:token/produto/:codDeBarras")
+routes.put("/:token/produto/:codDeBarras", ProdutoController.updateProd)
 
 module.exports = routes;
