@@ -45,6 +45,14 @@ class ProdutoController {
     }
     return res.status(500).json({error: "falha na autenticação"})
   }
+  async updateProd(req, res){
+    if(req.params.token === '12345678'){
+      const data = await Produto.findOneAndUpdate({codDeBarras: req.params.codDeBarras}, req.body, {upsert: true})
+
+      return res.json({success: "Produto atualizado com sucesso"})
+    }
+    return res.status(500).json({error: "falha na autenticação"})
+  }
 }
 
 module.exports = new ProdutoController();
