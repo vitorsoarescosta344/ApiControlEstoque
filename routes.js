@@ -29,6 +29,7 @@ routes.use((req, res, next) =>{
     next()
 })
 const ProdutoController = require("./app/controller/ProdutoController");
+const VendaController = require("./app/controller/VendaController")
 
 routes.get("/:token/produto", ProdutoController.index);
 
@@ -39,5 +40,9 @@ routes.get("/:token/produto/:codDeBarras", ProdutoController.getByCod)
 routes.delete("/:token/produto/:codDeBarras", ProdutoController.deleteProd)
 
 routes.put("/:token/produto/:codDeBarras", ProdutoController.updateProd)
+
+routes.get("/:token/vendas", VendaController.index )
+
+routes.post("/:token/vendas", VendaController.store )
 
 module.exports = routes;
